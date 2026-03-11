@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background-color: #fafafa;
+    color: #1a1a1a;
+}
+
+.home-item,
+.man-item,
+.plus-item {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 12px;
+}
+
+.avatar {
+    display: block;
+    width: 123px;
+    height: 123px; 
+}
+
+.avatar-name {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.avatar-description {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.gallery{
+    width: 972px;
+}
+
+.picture {
+    margin-bottom: 12px;
+    display: block;
+    width: 322px;
+    height: 322px;
+    border-radius: 2px;
+}

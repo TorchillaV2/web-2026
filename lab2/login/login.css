@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    background-color: #fafafa;
+    color: #1a1a1a;
+}
+
+.login-page {
+    width: 343px;
+    margin: 40px;
+}
+
+.login-visual {
+    margin-bottom: 32px;
+}
+
+.page-title {
+    font-size: 140px;
+    font-weight: 700;
+    margin: 0 0 24px 0;
+    text-align: center;
+}
+
+.login-image {
+    width: 462px;
+    height: 637px;
+}
+
+.login-form {
+    width: 343px;
+    height: 251px;
+}
+
+.input-group {
+    margin-bottom: 39px;
+}
+
+.form-label {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 343px;
+    height: 22px;
+    background-color: #f2f3f5;
+    border: none;
+    border-radius: 10px;
+    padding:13px 12px 13px 12px;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    font-size: 16px;
+    outline: none;
+}
+
+.form-hint {
+    font-size: 13px;
+    color: #888888;
+}
+
+.password-input {
+    width: 343px;
+    height: 22px;
+    background-color: #f2f3f5;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    font-size: 16px;
+    outline: none;
+}
+
+.password-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.eye-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.submit-button {
+    width: 311px;
+    background-color: #222222;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Inter', 'Roboto', sans-serif;
+}
