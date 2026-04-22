@@ -1,87 +1,120 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', 'Roboto', sans-serif;
-    background-color: #fafafa;
-    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #ffffff; 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    
+    padding-left: 72px; 
+    padding-top: 30px;
 }
 
-.item-home,
-.item-man,
-.item-plus {
-    display: block;
+.header-items {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding-top: 20px;
+    gap: 16px; 
+    
+    background-color: #ffffff;
+    border-right: 1px solid #dbdbdb; /
+}
+
+.header-items img {
     width: 40px;
     height: 40px;
-    margin-bottom: 12px;
+    cursor: pointer;
 }
 
 .news {
-    display: block;
-    width: 700px;
+    width: 100%;
+    max-width: 470px; 
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dbdbdb; 
+}
+
+.news-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
 }
 
 .avatar {
     width: 32px;
     height: 32px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 10px;
 }
 
 .avatar-name {
-    color: #222222;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 14px;
-    line-height: 18px;
-    margin-left: 10px;
+    flex-grow: 1; 
+    color: #262626;
 }
 
 .edit {
-    width: 24px;
-    height: 24px;
-    margin-left: 312px;
+    width: 16px;
+    cursor: pointer;
 }
 
-.photo-indicator {
-    display: block;
-    width: 44px;
-    height: 24px;
+.news-photo {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 12px;
 }
 
-.photo {
-    width: 474px;
-    height: 474px;
-    display: block;
+.news-photo .photo {
+    width: 100%;
+}
+
+.photo-indicator, .photo-slider-left, .photo-slider-right {
+    display: none; 
 }
 
 .like {
-    display: block;
-    width: 68px;
-    height: 30px;
-    outline: none;
-    border: none;
-    background: 0;
+    margin-bottom: 8px;
+}
+
+.like_button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #8e8e8e;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px; 
+    padding: 4px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .bottom-description {
-    font-weight: 400;
-    font-size: 15px;
-    display: block;
-    color: #222222;
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #262626;
 }
 
 .bottom-more {
-    font-weight: 400;
-    font-size: 15px;
-    display: block;
-    color: #808080;
+    color: #8e8e8e;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .bottom-time {
-    margin-top: 12px;
-    margin-bottom: 12px;
-    font-weight: 400;
-    font-size: 14px;
     display: block;
-    color: #808080;    
+    color: #8e8e8e;
+    font-size: 12px;
+    margin-top: 6px;
 }
-
-
-
