@@ -1,30 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap');
 body {
     margin: 0;
-    padding: 0 0 50px 60px; 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding-top: 100px;
+    padding-left: 72px; 
+    font-family: 'Golos Text', sans-serif;
     background-color: #ffffff;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.header-icons {
+.header-items {
     position: fixed;
     left: 0;
     top: 0;
     height: 100vh;
-    width: 60px;
+    width: 72px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 20px;
-    gap: 30px;
+    padding-top: 40px;
+    gap: 16px;
     background-color: #ffffff;
     border-right: 1px solid #dbdbdb;
 }
 
-.header-icons img {
+.header-items img {
     width: 40px;
     height: 40px;
     cursor: pointer;
@@ -34,49 +35,52 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    max-width: 400px;
+    gap: 12px;
+    margin-bottom: 42px;
+    max-width: 360px;
     text-align: center;
 }
 
 .avatar {
-    width: 130px;
-    height: 130px;
-    border-radius: 20px; 
+    width: 123px;
+    height: 123px;
+    border-radius: 16px; 
     object-fit: cover;
+    margin: 0px;
 }
 
 .avatar-name {
-    font-size: 26px;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 500;
     color: #262626;
-    margin: 20px 0 10px 0;
+    margin: 0px;
 }
 
 .avatar-description {
     font-size: 15px;
-    line-height: 1.4;
+    line-height: 1.5;
     color: #262626;
-    margin: 0 0 20px 0;
+    margin: 0px;
+
 }
 
 .avatar-posts {
-    height: 28px; 
+    height: 28px;
     cursor: pointer;
+    margin: 0px;
 }
 
 .gallery {
     width: 100%;
-    max-width: 930px; 
-    
+    max-width: 972px; 
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 4px; 
+    gap: 3px; 
 }
 
 .picture {
     width: 100%;
-    aspect-ratio: 1 / 1; 
+    width: 322px;
+    height: 322px;
     object-fit: cover; 
 }
