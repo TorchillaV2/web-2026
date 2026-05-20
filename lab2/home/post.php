@@ -1,17 +1,44 @@
 <?php
-
 $postId = isset($_GET['id']) ? (int) $_GET['id'] : null;
 
-$post = [
-    'id' => 1,
-    'authorName' => 'Ваня Денисов',
-    'avatarUrl' => './Avatar.png',
-    'photoUrl' => './photo.png',
-    'description' => 'Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский: «Поздно ночью, в уснувшей долине, на самом дне, в городке, занесенном снегом по ручку двери...»',
-    'time' => '2 часа назад',
-    'like' => '💔210',
-];
+$db = new mysqli('127.0.0.1', 'root', '1One.Five.Fifteen15', 'blog1');
 
+$sql = "
+    SELECT 
+        p.id,
+        p.imageUrl, 
+        p.likesCount, 
+        p.content, 
+        p.publishDate, 
+        u.fullName, 
+        u.avatarUrl 
+    FROM 
+        post p 
+    JOIN 
+        user u ON p.authorId = u.id 
+    WHERE 
+        p.id = $postId
+";
+
+$result = $db->query($sql);
+$post = [];
+
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $post = [
+        'id'          => $row['id'],
+        'authorName'  => $row['fullName'],
+        'avatarUrl'   => './' . $row['avatarUrl'], 
+        'photoUrl'    => './' . $row['imageUrl'],  
+        'description' => $row['content'],
+        'time'        => $row['publishDate'],
+        'like'        => '💔' . $row['likesCount'] 
+    ];
+} else {
+    die('Пост с таким ID не существует в базе данных.');
+}
+
+$db->close();
 ?>
 <!DOCTYPE html>
 <html>

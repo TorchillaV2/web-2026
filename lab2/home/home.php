@@ -1,26 +1,40 @@
 <?php
+$db = new mysqli('localhost', 'root', '1One.Five.Fifteen15', 'blog1');
 
-$posts = [
-    [
-        'id' => 1,
-        'authorName' => 'Ваня Денисов',
-        'avatarUrl' => './Avatar.png',
-        'photoUrl' => './photo.png',
-        'description' => 'Так красиво сегодня на улице! Настоящая зима)) Вспоминается Бродский: «Поздно ночью, в уснувшей долине, на самом дне, в городке, занесенном снегом по ручку двери...»',
-        'time' => '2 часа назад',
-        'like' => '💔210',
-    ],
-    [
-        'id'=> 2,
-        'authorName' => 'Лиза Дёмина',
-        'avatarUrl' => './avatar2.png',
-        'photoUrl' => './photo2.jpg',
-        'description' => 'Какой прелестный день!',
-        'time' => '5 часов назад',
-        'like' => '💔67',
-    ],
-];
+$sql = "
+    SELECT 
+        p.id,
+        p.imageUrl, 
+        p.likesCount, 
+        p.content, 
+        p.publishDate, 
+        u.fullName, 
+        u.avatarUrl 
+    FROM 
+        post p 
+    JOIN 
+        user u ON p.authorId = u.id 
+    ORDER BY 
+        p.publishDate DESC
+";
 
+$result = $db->query($sql);
+$posts = [];
+
+if ($result && $result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $posts[] = [
+            'id'          => $row['id'],
+            'authorName'  => $row['fullName'],
+            'avatarUrl'   => './' . $row['avatarUrl'], 
+            'photoUrl'    => './' . $row['imageUrl'],  
+            'description' => $row['content'],
+            'time'        => $row['publishDate'],
+            'like'        => '💔' . $row['likesCount'] 
+        ];
+    } 
+} 
+$db->close();
 ?>
 
 <!DOCTYPE html>
