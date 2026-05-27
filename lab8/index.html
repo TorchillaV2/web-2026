@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студпортал | Библиотека</title>
+    <style>
+        /* Базовые стили и переменные */
+        :root {
+            --color-bg: #f4f6f9;
+            --color-white: #ffffff;
+            --color-text-main: #333333;
+            --color-text-muted: #6c757d;
+            --color-primary: #0d6efd;
+            --color-primary-hover: #0b5ed7;
+            --color-success: #198754;
+            --color-danger: #dc3545;
+            --color-warning: #ffc107;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--color-bg); color: var(--color-text-main); line-height: 1.5; }
+
+        /* BEM: block header */
+        .header {
+            background-color: var(--color-white);
+            box-shadow: var(--shadow);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .header__logo { font-size: 1.5rem; font-weight: bold; color: var(--color-primary); }
+        .header__user { display: flex; align-items: center; gap: 1rem; }
+        .header__user-status {
+            background-color: var(--color-success); color: var(--color-white);
+            padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem;
+        }
+
+        /* BEM: block container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+
+        /* BEM: block search */
+        .search { display: flex; gap: 1rem; margin-bottom: 2rem; }
+        .search__input {
+            flex-grow: 1; padding: 0.75rem 1rem;
+            border: 1px solid #ced4da; border-radius: var(--border-radius);
+            font-size: 1rem; outline: none; transition: border-color 0.2s;
+        }
+        .search__input:focus { border-color: var(--color-primary); }
+        .search__button {
+            padding: 0.75rem 1.5rem; background-color: var(--color-primary);
+            color: var(--color-white); border: none; border-radius: var(--border-radius);
+            font-size: 1rem; cursor: pointer; transition: background-color 0.2s;
+        }
+        .search__button:hover { background-color: var(--color-primary-hover); }
+
+        /* BEM: block catalog */
+        .catalog { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 3rem; }
+
+        /* BEM: block book-card */
+        .book-card {
+            background-color: var(--color-white); border-radius: var(--border-radius);
+            box-shadow: var(--shadow); width: calc(33.333% - 1rem);
+            display: flex; flex-direction: column; overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .book-card:hover { transform: translateY(-5px); }
+        
+        .book-card__cover {
+            height: 200px; background-color: #e9ecef;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--color-text-muted); font-size: 3rem;
+        }
+        
+        .book-card__content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .book-card__badges { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
+        .book-card__badge {
+            font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: bold;
+        }
+        .book-card__badge--age { background-color: var(--color-warning); color: #000; }
+        .book-card__badge--status { background-color: #e2e3e5; color: var(--color-text-muted); }
+        .book-card__badge--available { background-color: #d1e7dd; color: var(--color-success); }
+        
+        .book-card__title { font-size: 1.25rem; margin-bottom: 0.5rem; line-height: 1.2; }
+        .book-card__author { color: var(--color-text-muted); margin-bottom: 1rem; flex-grow: 1; }
+        
+        .book-card__button {
+            width: 100%; padding: 0.75rem; border: none; border-radius: var(--border-radius);
+            font-size: 1rem; font-weight: bold; cursor: pointer; text-align: center;
+        }
+        .book-card__button--primary { background-color: var(--color-primary); color: var(--color-white); }
+        .book-card__button--primary:hover { background-color: var(--color-primary-hover); }
+        .book-card__button--disabled { background-color: #e9ecef; color: var(--color-text-muted); cursor: not-allowed; }
+        .book-card__button--danger { background-color: #f8d7da; color: var(--color-danger); cursor: not-allowed; }
+
+        /* Адаптивность */
+        @media (max-width: 900px) { .book-card { width: calc(50% - 0.75rem); } }
+        @media (max-width: 600px) { .book-card { width: 100%; } .search { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header__logo">СтудПортал</div>
+        <div class="header__user">
+            <span class="header__user-status">Читатель активен</span>
+            <div class="header__user-name">Иванов И.И.</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Библиотека</h2>
+        <br>
+        
+        <div class="search">
+            <input type="text" class="search__input" placeholder="Введите название книги, автора или ISBN...">
+            <button class="search__button">Найти</button>
+        </div>
+
+        <div class="catalog">
+            
+            <article class="book-card">
+                <div class="book-card__cover">📖</div>
+                <div class="book-card__content">
+                    <div class="book-card__badges">
+                        <span class="book-card__badge book-card__badge--age">0+</span>
+                        <span class="book-card__badge book-card__badge--available">На полке: 3 шт</span>
