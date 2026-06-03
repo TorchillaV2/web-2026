@@ -5,13 +5,22 @@
         <img class="edit" src="./edit.png" alt="edit">
     </div>
     
-    <div class="news-photo">
-        <img class="photo-indicator" src="./indicator.png" alt="indicator">
-        <a href="post.php?id=<?= $post['id'] ?>">
-            <img class="photo" src="<?= $post['photoUrl'] ?>" alt="photo">
-        </a>
-        <img class="photo-slider-left" src="./left-slider.png" alt="slide">
-        <img class="photo-slider-right" src="./right-slider.png" alt="slide">
+    <div class="news-photo" style="position: relative;">
+        <div class="photo-indicator">1 / <?= count($post['photos']) ?></div>
+    
+        <div class="slider-wrapper">
+            <a href="post.php?id=<?= $post['id'] ?>">
+                <?php if (!empty($post['photos'])): ?>
+                    <?php foreach ($post['photos'] as $index => $photoUrl): ?>
+                        <img class="photo" src="<?= $photoUrl ?>" alt="photo" style="display: <?= $index === 0 ? 'block' : 'none' ?>;">
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <?php endif; ?>
+            </a>
+        </div>
+    
+        <img class="photo-slider-left slider-btn-prev" src="./left-slider.png" alt="prev">
+        <img class="photo-slider-right slider-btn-next" src="./right-slider.png" alt="next">
     </div>
     
     <div class="like">

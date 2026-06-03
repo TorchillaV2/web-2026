@@ -75,5 +75,24 @@ USE blog1;
 SELECT * FROM post;
 DELETE FROM post WHERE id = 7;
 DELETE FROM post WHERE id IN (8, 9);
+USE blog1;
+CREATE TABLE post_image (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    postId INT NOT NULL,
+    imageUrl VARCHAR(255) NOT NULL,
+    FOREIGN KEY (postId) REFERENCES post(id) ON DELETE CASCADE
+);
+INSERT INTO post_image (postId, imageUrl)
+SELECT id, imageUrl FROM post WHERE imageUrl IS NOT NULL AND imageUrl != '';
+SELECT * FROM post_image;
+ALTER TABLE post DROP COLUMN imageUrl;
+SELECT * FROM post;
+INSERT INTO post_image (postId, imageUrl) 
+VALUES 
+    (1, 'images/dop1.jpg'),
+    (2, 'images/dop2.jpg'),
+    (3, 'images/dop3.jpg'),
+    (3, 'images/dop3.jpg');
+
 
 

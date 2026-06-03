@@ -77,8 +77,17 @@ body {
     overflow: hidden;
 }
 
+.slider-wrapper,
+.slider-wrapper a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
 .news-photo .photo {
     width: 100%;
+    height: 100%; 
+    object-fit: cover; 
     display: block;
 }
 
@@ -141,4 +150,61 @@ body {
     color: #22222280;
     font-size: 14px;
     margin-top: 8px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modalImage {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.modal-indicator {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.modal-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.modal-slider-btn {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    z-index: 1001;
 }
